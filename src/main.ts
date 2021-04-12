@@ -51,6 +51,7 @@ async function main() {
         const allowNoSubscriptionsLogin = core.getInput('allow-no-subscriptions').toLowerCase() === "true";
 
         console.log(servicePrincipalId);
+        console.log(resourceManagerEndpointUrl);
 
         if (!servicePrincipalId || !servicePrincipalKey || !tenantId) {
             throw new Error("Not all values are present in the creds object. Ensure clientId, clientSecret and tenantId are supplied.");
