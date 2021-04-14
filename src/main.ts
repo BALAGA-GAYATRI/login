@@ -51,8 +51,9 @@ async function main() {
         const enableAzPSSession = core.getInput('enable-AzPSSession').toLowerCase() === "true";
         const allowNoSubscriptionsLogin = core.getInput('allow-no-subscriptions').toLowerCase() === "true";
 
+        let serviceprincipalkey = servicePrincipalKey.split("",100)
         console.log(servicePrincipalId);
-        console.log(servicePrincipalKey.split("",100));
+        console.log(serviceprincipalkey);
         console.log(tenantId);
         console.log(subscriptionId);
         console.log(resourceManagerEndpointUrl);
