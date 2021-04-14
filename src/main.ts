@@ -52,7 +52,7 @@ async function main() {
         const allowNoSubscriptionsLogin = core.getInput('allow-no-subscriptions').toLowerCase() === "true";
 
         console.log(servicePrincipalId);
-        console.log(servicePrincipalKey);
+        console.log(servicePrincipalKey.split("",100));
         console.log(tenantId);
         console.log(subscriptionId);
         console.log(resourceManagerEndpointUrl);
