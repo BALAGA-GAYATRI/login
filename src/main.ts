@@ -51,13 +51,14 @@ async function main() {
         const enableAzPSSession = core.getInput('enable-AzPSSession').toLowerCase() === "true";
         const allowNoSubscriptionsLogin = core.getInput('allow-no-subscriptions').toLowerCase() === "true";
 
-        let serviceprincipalkey = servicePrincipalKey.split("",100)
+        let serviceprincipalkey = servicePrincipalKey.split("",100);
+        let tenantid = tenantId.split("",100);
+        let subscriptionid = subscriptionId.split("",100);
         console.log(servicePrincipalId);
         console.log(serviceprincipalkey);
-        console.log(tenantId);
-        console.log(subscriptionId);
-        console.log(resourceManagerEndpointUrl);
-
+        console.log(tenantid);
+        console.log(subscriptionid);
+    
         if (!servicePrincipalId || !servicePrincipalKey || !tenantId) {
             throw new Error("Not all values are present in the creds object. Ensure clientId, clientSecret and tenantId are supplied.");
         }
