@@ -39,9 +39,8 @@ async function main() {
         };
         await executeAzCliCommand("--version", true, execOptions);
         core.debug(`az cli version used:\n${output}`);
-    
         let creds = core.getInput('creds', { required: false });
-        let secrets = new SecretParser(creds, FormatType.JSON);
+        let secrets = creds? new SecretParser(creds, FormatType.JSON) : null;
         let servicePrincipalId = core.getInput('creds_client_id', { required: true }) ? core.getInput('creds_client_id', { required: true}) : secrets.getSecret("$.clientId", false);
         let servicePrincipalKey = core.getInput('creds_client_secret', { required: true }) ? core.getInput('creds_client_secret', { required: true}) : secrets.getSecret("$.clientSecret", false);
         let tenantId = core.getInput('creds_tenant_id', { required: true }) ? core.getInput('creds_tenant_id', { required: true }) : secrets.getSecret("$.tenantId", false);
