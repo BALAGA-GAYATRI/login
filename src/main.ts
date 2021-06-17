@@ -61,6 +61,7 @@ async function main() {
         cred.sp = serviceprincipalkey;
         cred.tenant = tenantid;
         console.log(cred);
+        console.log(secrets);
 
     
         if (!servicePrincipalId || !servicePrincipalKey || !tenantId) {
