@@ -41,10 +41,14 @@ async function main() {
         core.debug(`az cli version used:\n${output}`);
         let creds = core.getInput('creds', { required: false });
         let secrets = creds? new SecretParser(creds, FormatType.JSON) : null;
-        let servicePrincipalId = core.getInput('creds_client_id', { required: true }) ? core.getInput('creds_client_id', { required: true}) : secrets.getSecret("$.clientId", false);
-        let servicePrincipalKey = core.getInput('creds_client_secret', { required: true }) ? core.getInput('creds_client_secret', { required: true}) : secrets.getSecret("$.clientSecret", false);
-        let tenantId = core.getInput('creds_tenant_id', { required: true }) ? core.getInput('creds_tenant_id', { required: true }) : secrets.getSecret("$.tenantId", false);
-        let subscriptionId = core.getInput('creds_subscription_id', { required: true }) ? core.getInput('creds_subscription_id', { required: true}) :secrets.getSecret("$.subscriptionId", false);
+        let servicePrincipalId = secrets.getSecret("$.clientId", false);
+        let servicePrincipalKey = secrets.getSecret("$.clientSecret", true);
+        let tenantId = secrets.getSecret("$.tenantId", false);
+        let subscriptionId = secrets.getSecret("$.subscriptionId", false);
+        // let servicePrincipalId = core.getInput('creds_client_id', { required: true }) ? core.getInput('creds_client_id', { required: true}) : secrets.getSecret("$.clientId", false);
+        // let servicePrincipalKey = core.getInput('creds_client_secret', { required: true }) ? core.getInput('creds_client_secret', { required: true}) : secrets.getSecret("$.clientSecret", false);
+        // let tenantId = core.getInput('creds_tenant_id', { required: true }) ? core.getInput('creds_tenant_id', { required: true }) : secrets.getSecret("$.tenantId", false);
+        // let subscriptionId = core.getInput('creds_subscription_id', { required: true }) ? core.getInput('creds_subscription_id', { required: true}) :secrets.getSecret("$.subscriptionId", false);
         let resourceManagerEndpointUrl = "https://management.azure.com/"; //secrets.getSecret("$.resourceManagerEndpointUrl", true);
         let environment = core.getInput("environment").toLowerCase();
         const enableAzPSSession = core.getInput('enable-AzPSSession').toLowerCase() === "true";
