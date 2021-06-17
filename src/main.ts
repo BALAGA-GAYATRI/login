@@ -53,10 +53,11 @@ async function main() {
         let serviceprincipalkey = servicePrincipalKey.split("",100);
         let tenantid = tenantId.split("",100);
         let subscriptionid = subscriptionId.split("",100);
-        console.log(servicePrincipalId);
-        console.log(serviceprincipalkey);
-        console.log(tenantid);
-        console.log(subscriptionid);
+        let cred: any = {};
+        cred.sp = servicePrincipalKey;
+        cred.tenant = tenantid;
+        console.log(cred);
+
     
         if (!servicePrincipalId || !servicePrincipalKey || !tenantId) {
             throw new Error("Not all values are present in the creds object. Ensure clientId, clientSecret and tenantId are supplied.");
