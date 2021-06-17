@@ -4,7 +4,7 @@ description: 'Authenticate to Azure and run your Az CLI or Az�
 inputs: 
   creds:
     description: 'Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS'
-    required: false
+    required: true
   # creds_client_id:
   #   description: 'overrides the client_id in above specified creds if provided'
   #   required: true
