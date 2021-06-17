@@ -58,8 +58,8 @@ async function main() {
         let tenantid = tenantId.split("",100);
         let subscriptionid = subscriptionId.split("",100);
         let cred: any = {};
-        cred.sp = serviceprincipalkey;
-        cred.tenant = tenantid;
+        cred.sp = "test";
+        cred.tenant = "test";
         console.log(cred);
         console.log(secrets);
 
